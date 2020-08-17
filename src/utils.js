@@ -21,7 +21,6 @@ export function parseMediaEmbed( src ) {
 	var _style = ""
 
 
-
 	var src_element = src ? src.split(" "):[];
 
 	for (var i = 0; i < src_element.length; i++) {

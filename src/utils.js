@@ -38,15 +38,15 @@ export function parseMediaEmbed( src ) {
 				_src = 'https://player.vimeo.com/video/'+_urlSegment[index];
 			}
 		}
-		if(src_element[i].includes("width")){
+		if(src_element[i].includes("width=")){
 			let inPercent = src_element[i].includes("%");
 			_width = parseInt(src_element[i].replace(/width|=|"/g,''));
-			_width = _width + ( inPercent ? '%' : '' );
+			_width = _width + ( inPercent ? '%' : 'px' );
 		}
-		if(src_element[i].includes("height")){
+		if(src_element[i].includes("height=")){
 			let inPercent = src_element[i].includes("%");
 			_height = parseInt(src_element[i].replace(/height|=|"/g,''));
-			_height = _height + ( inPercent ? '%' : '' );
+			_height = _height + ( inPercent ? '%' : 'px' );
 		}
 		if(src_element[i].includes("frameborder")){
 			_frameborder = parseInt(src_element[i].replace(/frameborder|=|"/g,''));

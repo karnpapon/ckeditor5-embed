@@ -14,11 +14,11 @@ const SAFE_URL = /^(?:(?:https?|ftps?|mailto):|[^a-z]|[a-z+.-]+(?:[^a-z+.:-]|$))
 export function parseMediaEmbed( src ) {
 	// var _width = _ckeditorTopDivWidth ? _ckeditorTopDivWidth:640;
 	// var _height = parseInt(_width) * 0.5620;
-	var _width = '';
+	var _width = '100%';
 	var _height = '';
 	var _frameborder = 0;
 	var _src = "";
-	var _style = ""
+	// var _style = ""
 
 
 	var src_element = src ? src.split(" "):[];
@@ -38,25 +38,25 @@ export function parseMediaEmbed( src ) {
 				_src = 'https://player.vimeo.com/video/'+_urlSegment[index];
 			}
 		}
-		if(src_element[i].includes("width=")){
-			let inPercent = src_element[i].includes("%");
-			_width = parseInt(src_element[i].replace(/width|=|"/g,''));
-			_width = _width + ( inPercent ? '%' : 'px' );
-		}
-		if(src_element[i].includes("height=")){
-			let inPercent = src_element[i].includes("%");
-			_height = parseInt(src_element[i].replace(/height|=|"/g,''));
-			_height = _height + ( inPercent ? '%' : 'px' );
-		}
+		// if(src_element[i].includes("width=")){
+		// 	let inPercent = src_element[i].includes("%");
+		// 	_width = parseInt(src_element[i].replace(/width|=|"/g,''));
+		// 	_width = _width + ( inPercent ? '%' : 'px' );
+		// }
+		// if(src_element[i].includes("height=")){
+		// 	let inPercent = src_element[i].includes("%");
+		// 	_height = parseInt(src_element[i].replace(/height|=|"/g,''));
+		// 	_height = _height + ( inPercent ? '%' : 'px' );
+		// }
 		if(src_element[i].includes("frameborder")){
 			_frameborder = parseInt(src_element[i].replace(/frameborder|=|"/g,''));
 		}
 		if(src_element[i].includes("src=")){
 			_src = src_element[i].replace(/src|=|"/g,'');
 		}
-		if(src_element[i].includes("style=")){
-			_style = src_element[i].replace(/style|=|"/g,'');
-		}
+		// if(src_element[i].includes("style=")){
+		// 	_style = src_element[i].replace(/style|=|"/g,'');
+		// }
 	}
 
 	return {
@@ -66,7 +66,8 @@ export function parseMediaEmbed( src ) {
 		frameborder : _frameborder,
 		allow : "autoplay; encrypted-media",
 		allowfullscreen : true,
-		style: _style !== ''? _style: 'position: absolute;'
+		// style: _style !== ''? _style: 'position: absolute;'
+		style: 'position: absolute;'
 	};
 }
 

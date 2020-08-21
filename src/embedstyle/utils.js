@@ -5,8 +5,8 @@ import centerIcon from '@ckeditor/ckeditor5-core/theme/icons/object-center.svg';
 import leftSideIcon from '@ckeditor/ckeditor5-core/theme/icons/object-left-side.svg';
 import { attachLinkToDocumentation } from '@ckeditor/ckeditor5-utils/src/ckeditorerror';
 
-import leftIcon from "../theme/icons/align-left.svg";
-import rightIcon from "../theme/icons/align-right.svg";
+import leftIcon from '../../theme/icons/align-left.svg';
+import rightIcon from '../../theme/icons/align-right.svg';
 
 
 const defaultStyles = {

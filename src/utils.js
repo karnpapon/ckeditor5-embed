@@ -5,6 +5,7 @@
 const ATTRIBUTE_WHITESPACES = /[\u0000-\u0020\u00A0\u1680\u180E\u2000-\u2029\u205f\u3000]/g; // eslint-disable-line no-control-regex
 const SAFE_URL = /^(?:(?:https?|ftps?|mailto):|[^a-z]|[a-z+.-]+(?:[^a-z+.:-]|$))/i;
 
+import { isWidget, toWidget } from '@ckeditor/ckeditor5-widget/src/utils';
 
 /**
  * Returns a media attributes based on a given source (url/embed code).
@@ -115,4 +116,24 @@ function linkParser(link){
     }
   }
   return urlSegmentArray;
+}
+
+/**
+ * Returns a media widget editing view element if one is selected.
+ */
+export function getSelectedMediaViewWidget( selection ) {
+	const viewElement = selection.getSelectedElement();
+
+	if ( viewElement && isMediaWidget( viewElement ) ) {
+		return viewElement;
+	}
+
+	return null;
+}
+
+/**
+ * Checks if a given view element is a media widget.
+ */
+export function isMediaWidget( viewElement ) {
+	return !!viewElement.getCustomProperty( 'widget' ) && isWidget( viewElement );
 }

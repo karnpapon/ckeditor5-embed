@@ -1,0 +1,30 @@
+:root {
+  --ck-embed-style-spacing: 1.5em;
+}
+
+.ck-content .embed-style-side,
+.embed-style-align-left,
+.embed-style-align-center,
+.embed-style-align-right {
+  width: 75%;
+}
+
+.ck-content .embed-style-side {
+  float: right;
+  margin-left: var(--ck-embed-style-spacing) !important;
+}
+
+.ck-content .embed-style-align-left {
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+.ck-content .embed-style-align-center {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.ck-content .embed-style-align-right {
+  margin-right: 0 !important;
+  margin-left: auto !important;
+}

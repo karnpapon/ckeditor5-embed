@@ -3,6 +3,7 @@
  */
 
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
+import Widget from '@ckeditor/ckeditor5-widget/src/widget';
 import EmbedEditing from './embedediting';
 import EmbedUI from './embedui';
 
@@ -14,7 +15,7 @@ import EmbedUI from './embedui';
 export default class Embed extends Plugin {
 
 	static get requires() {
-		return [ EmbedEditing, EmbedUI ];
+		return [ EmbedEditing, EmbedUI, Widget ];
 	}
 
 

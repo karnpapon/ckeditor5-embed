@@ -5,12 +5,16 @@
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 import { isWidget, toWidget } from '@ckeditor/ckeditor5-widget/src/utils';
 import EmbedCommand from './embedcommand';
-import { getViewElementAttributes } from './utils.js';
+import { getViewElementAttributes, toEmbedWidget } from './utils.js';
 /**
  * The embed engine feature.
  * @extends module:core/plugin~Plugin
  */
 export default class EmbedEditing extends Plugin {
+
+	static get pluginName() {
+		return 'EmbedEditing';
+	}
 
 	init() {
 		const editor = this.editor;
@@ -36,7 +40,7 @@ export default class EmbedEditing extends Plugin {
 					const iframeElement = viewWriter.createEmptyElement( 'iframe', modelElement.getAttributes() );
 					const label = t( 'embed widget' );
 					viewWriter.insert( viewWriter.createPositionAt( figure, 0 ), iframeElement );
-					return toWidget( figure, viewWriter, { label } );
+					return toEmbedWidget( figure, viewWriter, { label } );
 				}return '';
 			}
 		} ) ;

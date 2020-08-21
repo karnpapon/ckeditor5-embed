@@ -135,5 +135,13 @@ export function getSelectedMediaViewWidget( selection ) {
  * Checks if a given view element is a media widget.
  */
 export function isMediaWidget( viewElement ) {
-	return !!viewElement.getCustomProperty( 'widget' ) && isWidget( viewElement );
+	console.log("viewElement embed", viewElement)
+	return !!viewElement.getCustomProperty( 'embed' ) && isWidget( viewElement );
+}
+
+
+export function toEmbedWidget( viewElement, writer, label ) {
+	writer.setCustomProperty( 'embed', true, viewElement );
+
+	return toWidget( viewElement, writer, { label } );
 }

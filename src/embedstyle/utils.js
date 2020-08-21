@@ -65,6 +65,7 @@ export function isEmbed(modelElement) {
 
 function _normalizeStyle( style ) {
 	// Just the name of the style has been passed.
+	console.log("style ------> ", style) 
 	if ( typeof style == 'string' ) {
 		const styleName = style;
 

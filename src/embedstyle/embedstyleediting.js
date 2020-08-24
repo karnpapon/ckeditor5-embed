@@ -22,17 +22,17 @@ export default class EmbedStyleEditing extends Plugin {
 
 		// Allow imaseStyle attribute in image.
 		// We could call it 'style' but https://github.com/ckeditor/ckeditor5-engine/issues/559.
-		schema.extend( 'embed', { allowAttributes: 'embedStyle' } );
+		schema.extend( 'embed', { allowAttributes: 'embedstyle' } );
 
 		const modelToViewConverter = modelToViewStyleAttribute( styles );
-		editing.downcastDispatcher.on( 'attribute:embedStyle:embed', modelToViewConverter );
-		data.downcastDispatcher.on( 'attribute:embedStyle:embed', modelToViewConverter );
+		editing.downcastDispatcher.on( 'attribute:embedstyle:embed', modelToViewConverter );
+		data.downcastDispatcher.on( 'attribute:embedstyle:embed', modelToViewConverter );
 
 		// Converter for figure element from view to model.
 		data.upcastDispatcher.on( 'element:figure', viewToModelStyleAttribute( styles ), { priority: 'low' } );
 
 		// Register imageStyle command.
-		editor.commands.add( 'embedStyle', new EmbedStyleCommand( editor, styles ) );
+		editor.commands.add( 'embedstyle', new EmbedStyleCommand( editor, styles ) );
 	}
 }
 

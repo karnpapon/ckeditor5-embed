@@ -27,8 +27,8 @@ export default class EmbedStyleCommand extends Command {
 
 		if ( !element ) {
 			this.value = false;
-		} else if ( element.hasAttribute( 'embedStyle' ) ) {
-			const attributeValue = element.getAttribute( 'embedStyle' );
+		} else if ( element.hasAttribute( 'embedstyle' ) ) {
+			const attributeValue = element.getAttribute( 'embedstyle' );
 			this.value = this.styles[ attributeValue ] ? attributeValue : false;
 		} else {
 			this.value = this.defaultStyle;
@@ -43,9 +43,9 @@ export default class EmbedStyleCommand extends Command {
 
 		model.change( writer => {
 			if ( this.styles[ styleName ].isDefault ) {
-				writer.removeAttribute( 'embedStyle', embedElement );
+				writer.removeAttribute( 'embedstyle', embedElement );
 			} else {
-				writer.setAttribute( 'embedStyle', styleName, embedElement );
+				writer.setAttribute( 'embedstyle', styleName, embedElement );
 			}
 		} );
 	}

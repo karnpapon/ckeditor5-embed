@@ -36,10 +36,10 @@ export default class EmbedStyleUI extends Plugin {
 	_createButton( style ) {
 		const editor = this.editor;
 
-		const componentName = `embedStyle:${ style.name }`;
+		const componentName = `embedstyle:${ style.name }`;
 
 		editor.ui.componentFactory.add( componentName, locale => {
-			const command = editor.commands.get( 'embedStyle' );
+			const command = editor.commands.get( 'embedstyle' );
 			const view = new ButtonView( locale );
 
 			view.set( {
@@ -53,7 +53,7 @@ export default class EmbedStyleUI extends Plugin {
 			view.bind( 'isOn' ).to( command, 'value', value => value === style.name );
 
 			this.listenTo( view, 'execute', () => {
-				editor.execute( 'embedStyle', { value: style.name } );
+				editor.execute( 'embedstyle', { value: style.name } );
 				editor.editing.view.focus();
 			} );
 

@@ -39,7 +39,7 @@ export function viewToModelStyleAttribute( styles ) {
 		const modelImageElement = first( data.modelRange.getItems() );
 
 		// Check if `imageStyle` attribute is allowed for current element.
-		if ( !conversionApi.schema.checkAttribute( modelImageElement, 'embedStyle' ) ) {
+		if ( !conversionApi.schema.checkAttribute( modelImageElement, 'embedstyle' ) ) {
 			return;
 		}
 
@@ -48,7 +48,7 @@ export function viewToModelStyleAttribute( styles ) {
 			// Try to consume class corresponding with style.
 			if ( conversionApi.consumable.consume( viewFigureElement, { classes: style.className } ) ) {
 				// And convert this style to model attribute.
-				conversionApi.writer.setAttribute( 'embedStyle', style.name, modelImageElement );
+				conversionApi.writer.setAttribute( 'embedstyle', style.name, modelImageElement );
 			}
 		}
 	};

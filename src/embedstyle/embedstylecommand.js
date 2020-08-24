@@ -23,6 +23,8 @@ export default class EmbedStyleCommand extends Command {
 		const element = this.editor.model.document.selection.getSelectedElement();
 		this.isEnabled = isEmbed( element );
 
+		console.log("embed element refresh ---> ", element)
+
 		if ( !element ) {
 			this.value = false;
 		} else if ( element.hasAttribute( 'embedStyle' ) ) {
